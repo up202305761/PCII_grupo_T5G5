@@ -1,0 +1,30 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="dados">
+        <br><br>
+            <h1>Lucro</h1>
+    </div>
+    
+    <p>Esta página serve para consultar o lucro de um produto.</p>
+    <form action="/calcula_lucro" method="post">
+      <label for="cars">Escolhe o código de um produto:</label>
+      <select name="produto" id="produto">
+      {% for i in produtos %}
+          <option value="{{i}}">{{produtos[i].code}}</option>
+      {% endfor %}
+      </select>
+      <br><br>
+      <input type="submit" value="Submeter">
+    </form>
+    
+{% endblock %}
+

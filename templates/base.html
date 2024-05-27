@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Armazém</title>
+    {% block title %}
+    {% endblock %}
+  </head>
+    <body>
+        <nav>
+            <ul class="menu">
+                {% if ulogin == None %}
+                    <li><a class="button" href="/login">Iniciar sessão</a></li>
+                {% else %}
+                    <li><a class="button" href="/logoff">Sair</a></li>
+                    <li><a class="button" href="/gform/Customer">Cliente</a></li>
+                    
+                    <li><a class="button" href="/gform/Product?subm=product">Produtos</a></li>
+                    <li><a class="button" href="/subform/CustomerOrder_OrderProduct?option=''&subm=order">Encomendas</a></li>
+                    <li><a class="button" href="/calcula_lucro">Lucro</a></li>
+                    
+                    
+                    <li><a class="button" style="color:white">Utilizador: {{ulogin}}</a></li>
+                    
+                    <br><br>
+            
+                    
+                   
+                    
+                {% endif %}
+            </ul>
+        </nav>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
